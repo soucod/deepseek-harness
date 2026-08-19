@@ -16,7 +16,8 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh \
 
 # 安装 ssh 服务，用于支持 VSCode 等客户端通过 Remote-SSH 访问开发环境（也可按需安装其他软件）
 RUN dnf update -y && dnf install -y git wget unzip openssh-server epel-release curl vim unzip procps && dnf install -y atop btop htop iftop iotop cockpit
-
+RUN dnf install -y nodejs npm make gcc-c++
+RUN npm i -g pnpm
 
 # 设置时区为：Shanghai
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
